@@ -33,8 +33,7 @@ const TextInputGroup = ({
   );
 };
 
-{
-  /* <div className="form-group">
+/* <div className="form-group">
 <label htmlFor="name">Name</label>
 <input
   type="text"
@@ -44,7 +43,6 @@ const TextInputGroup = ({
   value={name}
   onChange={this.onChange}
 /> */
-}
 
 TextInputGroup.propTypes = {
   label: PropTypes.string.isRequired,
