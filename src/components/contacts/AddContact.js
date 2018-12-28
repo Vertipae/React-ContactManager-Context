@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 // For the case "ADD_CONTACT" from the context.js
 import { Consumer } from "../../context";
+import TextInputGroup from "../layout/TextInputGroup";
 import uuid from "uuid";
 
 class AddContact extends Component {
@@ -51,42 +52,31 @@ class AddContact extends Component {
               <div className="card-header">Add Contact</div>
               <div className="card-body">
                 <form onSubmit={this.onSubmit.bind(this, dispatch)}>
-                  {/* Form group for name */}
-                  <div className="form-group">
-                    <label htmlFor="name">Name</label>
-                    <input
-                      type="text"
-                      name="name"
-                      className="form-control form-control-lg"
-                      placeholder="Enter Name.."
-                      value={name}
-                      onChange={this.onChange}
-                    />
-                  </div>
-                  {/* Form group for email */}
-                  <div className="form-group">
-                    <label htmlFor="email">Email</label>
-                    <input
-                      type="email"
-                      name="email"
-                      className="form-control form-control-lg"
-                      placeholder="Enter Email.."
-                      value={email}
-                      onChange={this.onChange}
-                    />
-                  </div>
-                  {/* Form group for phone */}
-                  <div className="form-group">
-                    <label htmlFor="phone">Phone</label>
-                    <input
-                      type="text"
-                      name="phone"
-                      className="form-control form-control-lg"
-                      placeholder="Enter Phone.."
-                      value={phone}
-                      onChange={this.onChange}
-                    />
-                  </div>
+                  <TextInputGroup
+                    label="Name"
+                    name="name"
+                    placeholder="Enter Name"
+                    value={name}
+                    onChange={this.onChange}
+                  />
+
+                  <TextInputGroup
+                    label="Email"
+                    name="email"
+                    // Type is text by default but in email it is type="email"
+                    type="email"
+                    placeholder="Enter Email"
+                    value={email}
+                    onChange={this.onChange}
+                  />
+                  <TextInputGroup
+                    label="Phone"
+                    name="phone"
+                    placeholder="Enter Phone"
+                    value={phone}
+                    onChange={this.onChange}
+                  />
+
                   {/* Submit button */}
                   <input
                     type="submit"
