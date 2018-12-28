@@ -54,6 +54,8 @@ class AddContact extends Component {
       // Clears the errors
       errors: {}
     });
+    // Redirecting to homepage when adding contact
+    this.props.history.push("/");
   };
   // name="name", name="email", name="phone"
   onChange = e => this.setState({ [e.target.name]: e.target.value });
