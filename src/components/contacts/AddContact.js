@@ -2,7 +2,8 @@ import React, { Component } from "react";
 // For the case "ADD_CONTACT" from the context.js
 import { Consumer } from "../../context";
 import TextInputGroup from "../layout/TextInputGroup";
-import uuid from "uuid";
+// import uuid from "uuid";
+import axios from "axios";
 
 class AddContact extends Component {
   state = {
@@ -37,14 +38,16 @@ class AddContact extends Component {
     // Constructing a new contact
     const newContact = {
       // ES6 syntax replaces: name: name
-      id: uuid(), // generates the id
+      // id: uuid(), generates the id
       name,
       email,
       phone
     };
-    // console.log(this.state);
-    // Calling dispatch method
-    dispatch({ type: "ADD_CONTACT", payload: newContact });
+
+    axios
+      .post("https://jsonplaceholder.typicode.com/users", newContact)
+      // Promise
+      .then(res => dispatch({ type: "ADD_CONTACT", payload: res.data }));
 
     // Clear state = Clears the input after adding the contact
     this.setState({
