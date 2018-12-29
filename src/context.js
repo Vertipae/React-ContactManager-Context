@@ -23,6 +23,17 @@ const reducer = (state, action) => {
         // Sending the new contact as the payload and update the state by adding a new contact
         contacts: [action.payload, ...state.contacts]
       };
+
+    case "UPDATE_CONTACT":
+      return {
+        ...state,
+        // Making sure that id matches to contact
+        contacts: state.contacts.map(contact =>
+          contact.id === action.payload.id
+            ? (contact = action.payload)
+            : contact
+        )
+      };
     default:
       return state;
   }
