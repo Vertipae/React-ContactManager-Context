@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/react-contactmanager-context/precache-manifest.5c0c529c722c09040006372fb16ab357.js"
+  "/React-ContactManager-Context/precache-manifest.9003ef6fd40845d1adbeaf6906460e5e.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/react-contactmanager-context/index.html", {
+workbox.routing.registerNavigationRoute("/React-ContactManager-Context/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
