@@ -14,7 +14,7 @@ class AddContact extends Component {
     errors: {}
   };
 
-  onSubmit = (dispatch, e) => {
+  onSubmit = async (dispatch, e) => {
     e.preventDefault(); // PreventDefault blocks event from sending HTTP request to server
     // Destructuring
     // Inputs are in state which are pulled out from the state
@@ -44,10 +44,14 @@ class AddContact extends Component {
       phone
     };
 
-    axios
-      .post("https://jsonplaceholder.typicode.com/users", newContact)
-      // Promise
-      .then(res => dispatch({ type: "ADD_CONTACT", payload: res.data }));
+    const res = await axios.post(
+      "https://jsonplaceholder.typicode.com/users",
+      newContact
+    );
+
+    dispatch({ type: "ADD_CONTACT", payload: res.data });
+    // Promise
+    // .then(res => dispatch({ type: "ADD_CONTACT", payload: res.data }));
 
     // Clear state = Clears the input after adding the contact
     this.setState({
